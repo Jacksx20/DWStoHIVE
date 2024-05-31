@@ -1,0 +1,1858 @@
+CREATE TABLE mdm.t_ace_accessory (
+	sclassid varchar(8) NULL,
+	acecls varchar(4) NULL,
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	mara_bismt varchar(36) NULL,
+	mara_matnr varchar(36) NOT NULL,
+	makt_maktx varchar(160) NULL,
+	acebrd varchar(8) NULL,
+	pdcmrk varchar(8) NULL,
+	mtrprp varchar(8) NULL,
+	acetcv varchar(8) NULL,
+	stand varchar(8) NULL,
+	mara_maktx varchar(8) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	calcu_price varchar(200) NULL,
+	stand_name1 varchar(200) NULL,
+	tow_type varchar(20) NULL,
+	cigar_paperpor varchar(10) NULL,
+	reel_material varchar(2) NULL,
+	datafrom varchar(1000) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_accessory PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ace_brand (
+	acebrd varchar(8) NOT NULL,
+	acebrd_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_brand PRIMARY KEY (acebrd)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ace_sclass (
+	sclassid varchar(8) NOT NULL,
+	ref_acecls varchar(4) NULL,
+	acedtl varchar(4) NULL,
+	descript varchar(160) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_sclass PRIMARY KEY (sclassid)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ace_soleto (
+	pdcmrk varchar(8) NOT NULL,
+	pdcmrk_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_soleto PRIMARY KEY (pdcmrk)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ace_spec (
+	stand varchar(8) NOT NULL,
+	stand_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_spec PRIMARY KEY (stand)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ace_tech (
+	acetcv varchar(8) NOT NULL,
+	acetcv_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_tech PRIMARY KEY (acetcv)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ace_usage (
+	mtrprp varchar(8) NOT NULL,
+	mtrprp_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ace_usage PRIMARY KEY (mtrprp)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_aceb_lclass (
+	acecls varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_aceb_lclass PRIMARY KEY (acecls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_area (
+	area_code varchar(8) NOT NULL,
+	ref_country_code varchar(6) NULL,
+	area varchar(40) NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_area PRIMARY KEY (area_code)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_bankl (
+	lfbk_bankl varchar(30) NOT NULL,
+	descript varchar(200) NULL,
+	bank_code varchar(20) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_bankl PRIMARY KEY (lfbk_bankl)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_cap (
+	t_bacis_cap_id varchar(6) NOT NULL,
+	t_basic_cap_name varchar(20) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_cap PRIMARY KEY (t_bacis_cap_id)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_country (
+	country_code varchar(6) NOT NULL,
+	country_name varchar(100) NULL,
+	sname varchar(100) NULL,
+	ename varchar(100) NULL,
+	remark varchar(512) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_country PRIMARY KEY (country_code)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_currency (
+	ordcur varchar(10) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_currency PRIMARY KEY (ordcur)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_exporttype (
+	exporttype varchar(2) NOT NULL,
+	descript varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_exporttype PRIMARY KEY (exporttype)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_gewei (
+	mara_gewei varchar(6) NOT NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_gewei PRIMARY KEY (mara_gewei)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_language (
+	kna1_spras varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_language PRIMARY KEY (kna1_spras)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_maktx (
+	mara_maktx varchar(12) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_maktx PRIMARY KEY (mara_maktx)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_matkl (
+	mara_matkl varchar(18) NOT NULL,
+	descript varchar(200) NULL,
+	category varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_matkl PRIMARY KEY (mara_matkl)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_ordgw (
+	ordgw varchar(6) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_ordgw PRIMARY KEY (ordgw)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_payment (
+	payment varchar(6) NOT NULL,
+	descript varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_payment PRIMARY KEY (payment)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_prcgw (
+	prcgw varchar(6) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_prcgw PRIMARY KEY (prcgw)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_taxrate (
+	taxrate varchar(4) NOT NULL,
+	descript varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_taxrate PRIMARY KEY (taxrate)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_basic_voleh (
+	mara_voleh varchar(6) NOT NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_basic_voleh PRIMARY KEY (mara_voleh)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_city (
+	city_code varchar(6) NOT NULL,
+	city_name varchar(160) NULL,
+	prov_code varchar(6) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_city PRIMARY KEY (city_code)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_county (
+	county_code varchar(6) NOT NULL,
+	county_name varchar(160) NULL,
+	prov_code varchar(6) NULL,
+	city_code varchar(6) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_county PRIMARY KEY (county_code)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_cus_bank (
+	kna1_kunnr varchar(32) NULL,
+	knbk_banks varchar(6) NULL,
+	knbk_bankl varchar(30) NULL,
+	knbk_bankn varchar(100) NULL,
+	bnka_banka varchar(200) NULL,
+	knbk_koinh varchar(200) NULL,
+	cusbankid varchar(18) NOT NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_cus_bank PRIMARY KEY (cusbankid)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_cus_cuscls (
+	cuscls varchar(4) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_cus_cuscls PRIMARY KEY (cuscls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_cus_customer (
+	cuscls varchar(4) NULL,
+	kna1_ktokd varchar(8) NULL,
+	kna1_kunnr varchar(32) NOT NULL,
+	kna1_name1 varchar(160) NULL,
+	kna1_sortl varchar(160) NULL,
+	kna1_stras varchar(400) NULL,
+	kna1_adrnr varchar(40) NULL,
+	kna1_ort01 varchar(80) NULL,
+	kna1_regio varchar(40) NULL,
+	kna1_land1 varchar(6) NULL,
+	kna1_spras varchar(4) NULL,
+	kna1_stceg varchar(120) NULL,
+	datafrom varchar(200) NULL,
+	oldnum varchar(32) NULL,
+	ht_oldnum varchar(32) NULL,
+	hy_oldnum varchar(32) NULL,
+	kna1_telf1 varchar(100) NULL,
+	contel varchar(100) NULL,
+	connam varchar(60) NULL,
+	kna1_telfx varchar(100) NULL,
+	ccnur varchar(40) NULL,
+	bname varchar(48) NULL,
+	name_en varchar(100) NULL,
+	en_house_number varchar(100) NULL,
+	en_street varchar(100) NULL,
+	en_country varchar(200) NULL,
+	email_address varchar(241) NULL,
+	administrative varchar(80) NULL,
+	ordcur varchar(10) NULL,
+	taxrate varchar(4) NULL,
+	paycurrency varchar(80) NULL,
+	paymethod varchar(10) NULL,
+	payment varchar(6) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_cus_customer PRIMARY KEY (kna1_kunnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_cus_ktokd (
+	kna1_ktokd varchar(8) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_cus_ktokd PRIMARY KEY (kna1_ktokd)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_cus_ptype (
+	ptype varchar(4) NOT NULL,
+	ptype_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_cus_ptype PRIMARY KEY (ptype)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_cus_trantype (
+	trantype varchar(4) NOT NULL,
+	trantype_name varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_cus_trantype PRIMARY KEY (trantype)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_diameter (
+	diameter varchar(2) NOT NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_diameter PRIMARY KEY (diameter)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_dzyj_prod (
+	ess_midclsid varchar(1) NULL,
+	ess_smlcls varchar(2) NULL,
+	mara_matnr varchar(12) NOT NULL,
+	makt_maktx varchar(200) NULL,
+	zjypp varchar(6) NULL,
+	mara_maktx varchar(12) NULL,
+	ess_sptm varchar(200) NULL,
+	maptyp varchar(200) NULL,
+	heattype varchar(2) NULL,
+	diameter varchar(2) NULL,
+	tco_length varchar(2) NULL,
+	nicotine_contet varchar(3) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_dzyj_prod PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_dzyj_raw (
+	ess_midclsid varchar(2) NULL,
+	ess_smlcls varchar(4) NULL,
+	mara_matnr varchar(11) NOT NULL,
+	makt_maktx varchar(200) NULL,
+	mara_maktx varchar(12) NULL,
+	maptyp varchar(1000) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_dzyj_raw PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_dzyj_semi (
+	ess_midclsid varchar(1) NULL,
+	ess_smlcls varchar(2) NULL,
+	mara_matnr varchar(12) NOT NULL,
+	makt_maktx varchar(200) NULL,
+	zjypp varchar(6) NULL,
+	mara_maktx varchar(12) NULL,
+	ess_sptm varchar(20) NULL,
+	maptyp varchar(200) NULL,
+	heattype varchar(2) NULL,
+	diameter varchar(2) NULL,
+	tco_length varchar(2) NULL,
+	nicotine_contet varchar(3) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_dzyj_semi PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_eqi_class1 (
+	t_eqi_class1_code varchar(6) NOT NULL,
+	t_eqi_class1_name varchar(80) NULL,
+	CONSTRAINT pk_t_eqi_class1 PRIMARY KEY (t_eqi_class1_code)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_eqi_class2 (
+	t_eqi_class2_id varchar(8) NOT NULL,
+	ref_t_eqi_class1_code varchar(6) NULL,
+	t_eqi_class2_code varchar(4) NULL,
+	t_eqi_class2_name varchar(60) NULL,
+	CONSTRAINT pk_t_eqi_class2 PRIMARY KEY (t_eqi_class2_id)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_eqi_class3 (
+	t_eqi_class3_id varchar(20) NOT NULL,
+	t_eqi_class2_id varchar(8) NULL,
+	t_eqi_class3_code varchar(8) NULL,
+	t_eqi_class3_name varchar(200) NULL,
+	CONSTRAINT pk_t_eqi_class3 PRIMARY KEY (t_eqi_class3_id)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_eqi_master (
+	eqinum varchar(32) NOT NULL,
+	oldnum varchar(40) NULL,
+	crdnum varchar(40) NULL,
+	eqinam varchar(160) NULL,
+	eqicode varchar(40) NULL,
+	t_org_short_code varchar(4) NULL,
+	t_eqi_class3_id varchar(20) NULL,
+	t_eqi_class2_id varchar(8) NULL,
+	t_eqi_class1_code varchar(6) NULL,
+	model varchar(160) NULL,
+	spec varchar(160) NULL,
+	pltnum varchar(80) NULL,
+	mara_maktx varchar(8) NULL,
+	buydat timestamp(0) NULL,
+	prhprc float8 NULL,
+	ordcur varchar(10) NULL,
+	lfa1_lifnr varchar(32) NULL,
+	mft varchar(160) NULL,
+	country_code varchar(6) NULL,
+	mfd timestamp(0) NULL,
+	prdcpt varchar(120) NULL,
+	t_bacis_cap_id varchar(6) NULL,
+	CONSTRAINT pk_t_eqi_master PRIMARY KEY (eqinum)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_eqi_model (
+	t_eqi_model_id varchar(10) NOT NULL,
+	t_eqi_model_name varchar(160) NULL,
+	CONSTRAINT pk_t_eqi_model PRIMARY KEY (t_eqi_model_id)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_eqi_spec (
+	t_eqi_spec_id varchar(10) NOT NULL,
+	t_eqi_spec_name varchar(160) NULL,
+	CONSTRAINT pk_t_eqi_spec PRIMARY KEY (t_eqi_spec_id)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ess_smlcls (
+	ess_smlcls varchar(2) NOT NULL,
+	ess_smlclsid varchar(1) NULL,
+	ess_midlclsid varchar(1) NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ess_smlcls PRIMARY KEY (ess_smlcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_esshal_smlcls (
+	esshal_smlcls varchar(2) NOT NULL,
+	esshal_smlclsid varchar(1) NULL,
+	esshal_midlclsid varchar(1) NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_esshal_smlcls PRIMARY KEY (esshal_smlcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_essmat_midcls (
+	essmat_midcls varchar(2) NOT NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_essmat_midcls PRIMARY KEY (essmat_midcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_essmat_smlclsid (
+	essmat_smlcls varchar(4) NOT NULL,
+	essmat_smlclsid varchar(2) NULL,
+	essmat_midclsid varchar(2) NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_essmat_smlclsid PRIMARY KEY (essmat_smlcls)
+)
+--------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_nicotine_contet (
+	nicotine_contet varchar(3) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_nicotine_contet PRIMARY KEY (nicotine_contet)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ncmb_ncmdtl (
+	ncmdtl varchar(8) NOT NULL,
+	ncmcls varchar(6) NULL,
+	ncmid varchar(4) NULL,
+	descript varchar(80) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ncmb_ncmdtl PRIMARY KEY (ncmdtl)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ncmb_ncmcls (
+	ncmcls varchar(6) NOT NULL,
+	descript varchar(100) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ncmb_ncmcls PRIMARY KEY (ncmcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ncm_supp (
+	ncmdtl varchar(8) NULL,
+	ncmcls varchar(4) NULL,
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	mara_bismt varchar(200) NULL,
+	mara_matnr varchar(36) NOT NULL,
+	makt_maktx varchar(1000) NULL,
+	mara_meins varchar(1000) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	phsgup varchar(6) NULL,
+	asscls varchar(8) NULL,
+	ordgw varchar(6) NULL,
+	prcgw varchar(6) NULL,
+	ctlprc varchar(2) NULL,
+	bname varchar(48) NULL,
+	datafrom varchar(1000) NULL,
+	desp_en varchar(100) NULL,
+	maptyp varchar(1000) NULL,
+	swlpp varchar(1000) NULL,
+	wlcd varchar(1000) NULL,
+	cjzbm varchar(250) NULL,
+	remark varchar(500) NULL,
+	tech_param varchar(1000) NULL,
+	suppor_equip varchar(500) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ncm_supp PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ncm_phsgup (
+	phsgup varchar(6) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ncm_phsgup PRIMARY KEY (phsgup)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ncm_asscls (
+	asscls varchar(8) NOT NULL,
+	descript varchar(80) NULL,
+	atype varchar(60) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	CONSTRAINT pk_t_ncm_asscls PRIMARY KEY (asscls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_mdm_log (
+	uuid varchar(100) NOT NULL,
+	model_name varchar(100) NULL,
+	row_count varchar(100) NULL,
+	receive_time timestamp NULL,
+	"result" varchar(100) NULL,
+	error_msg text NULL,
+	operation_tpye varchar(100) NULL
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_map_topcls (
+	topcls varchar(2) NOT NULL,
+	descript varchar(80) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_map_topcls PRIMARY KEY (topcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_map_smlcls (
+	midcls varchar(4) NULL,
+	smlclsid varchar(4) NULL,
+	smlcls varchar(8) NOT NULL,
+	descript varchar(160) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_map_smlcls PRIMARY KEY (smlcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_map_parts (
+	mapcode varchar(2) NULL,
+	topcls varchar(2) NULL,
+	midcls varchar(4) NULL,
+	smlcls varchar(8) NULL,
+	otrrmk varchar(12) NULL,
+	budfrm varchar(2) NULL,
+	mara_matnr varchar(80) NOT NULL,
+	partnum varchar(160) NULL,
+	mapnum varchar(160) NULL,
+	otrmap varchar(160) NULL,
+	ordernum varchar(160) NULL,
+	maptyp varchar(160) NULL,
+	newalt varchar(160) NULL,
+	mapbrd varchar(160) NULL,
+	typrmk varchar(400) NULL,
+	mara_bismt varchar(300) NULL,
+	makt_maktx varchar(160) NULL,
+	makt_maktx_en varchar(200) NULL,
+	mara_meins varchar(8) NULL,
+	suitable_model varchar(160) NULL,
+	newalt1 varchar(160) NULL,
+	newalt2 varchar(160) NULL,
+	newalt3 varchar(160) NULL,
+	newalt4 varchar(160) NULL,
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	mara_bismt_ht varchar(80) NULL,
+	mara_bismt_hy varchar(300) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	datafrom varchar(1000) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_map_parts PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_map_otrrmk (
+	smlcls varchar(8) NULL,
+	otrrmkid varchar(4) NULL,
+	otrrmk varchar(12) NOT NULL,
+	descript varchar(160) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_map_otrrmk PRIMARY KEY (otrrmk)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_map_midcls (
+	topcls varchar(2) NULL,
+	midclsid varchar(2) NULL,
+	midcls varchar(4) NOT NULL,
+	descript varchar(160) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_map_midcls PRIMARY KEY (midcls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_hrs_stftype (
+	hrstype varchar(50) NOT NULL,
+	"name" varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_hrs_stftype PRIMARY KEY (hrstype)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_hrs_staff (
+	hrscode varchar(16) NOT NULL,
+	hrsnam varchar(100) NULL,
+	crdnum varchar(80) NULL,
+	hrstype varchar(50) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_hrs_staff PRIMARY KEY (hrscode)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_heattype (
+	heattype varchar(2) NOT NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_heattype PRIMARY KEY (heattype)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_halb_cls (
+	clscode varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_halb_cls PRIMARY KEY (clscode)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_hal_semi_mold (
+	clscode varchar(4) NULL,
+	zjypp varchar(6) NULL,
+	mara_matnr_p varchar(36) NULL,
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	mara_bismt varchar(36) NULL,
+	mara_matnr varchar(36) NOT NULL,
+	makt_maktx varchar(160) NULL,
+	mara_maktx varchar(12) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	datafrom varchar(1000) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_hal_semi_mold PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_hal_semi (
+	clscode varchar(4) NULL,
+	zjypp varchar(6) NULL,
+	mara_matnr_p varchar(36) NULL,
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	mara_bismt varchar(36) NULL,
+	mara_matnr varchar(36) NOT NULL,
+	makt_maktx varchar(160) NULL,
+	mara_maktx varchar(8) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	rod_specificat varchar(10) NULL,
+	datafrom varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_hal_semi PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_finb_mtart (
+	mara_mtart varchar(8) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_finb_mtart PRIMARY KEY (mara_mtart)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zzpclss (
+	zzpclss varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zzpclss PRIMARY KEY (zzpclss)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zyyht (
+	zyyht varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zyyht PRIMARY KEY (zyyht)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zyqyj (
+	zyqyj varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zyqyj PRIMARY KEY (zyqyj)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zjyxx (
+	zjyxx varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zjyxx PRIMARY KEY (zjyxx)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zjypp (
+	zjypp varchar(6) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zjypp PRIMARY KEY (zjypp)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zjyl (
+	zjyl varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zjyl PRIMARY KEY (zjyl)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zjycd (
+	zjycd varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zjycd PRIMARY KEY (zjycd)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zbzzys (
+	zbzzys varchar(10) NOT NULL,
+	descript varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zbzzys PRIMARY KEY (zbzzys)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_zbzlx (
+	zbzlx varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_zbzlx PRIMARY KEY (zbzlx)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_ferb_boxini (
+	boxini varchar(4) NOT NULL,
+	descript varchar(40) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ferb_boxini PRIMARY KEY (boxini)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_version_num (
+	version_num varchar(1) NOT NULL,
+	version_num_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_version_num PRIMARY KEY (version_num)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_scls (
+	ferscls varchar(4) NOT NULL,
+	ferbcls varchar(1) NULL,
+	scliassid varchar(8) NULL,
+	descript varchar(160) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_scls PRIMARY KEY (ferscls)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_sales_channels (
+	sales_channels varchar(1) NOT NULL,
+	sales_channels_name varchar(200) NULL,
+	descript_ch varchar(200) NULL,
+	descript_en varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_sales_channels PRIMARY KEY (sales_channels)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_product (
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	ferbcls varchar(1) NULL,
+	ferscls varchar(4) NULL,
+	mara_bismt varchar(36) NULL,
+	mara_matnr varchar(36) NOT NULL,
+	makt_maktx varchar(80) NULL,
+	makt_maktx_sec varchar(80) NULL,
+	mara_meins varchar(8) NULL,
+	zjyspjm varchar(26) NULL,
+	zjysptm varchar(26) NULL,
+	zjysphm varchar(26) NULL,
+	zzpclss varchar(4) NULL,
+	zjypp varchar(6) NULL,
+	zjyxx varchar(4) NULL,
+	zbzlx varchar(4) NULL,
+	zjycd varchar(4) NULL,
+	zjyl varchar(4) NULL,
+	zxhbzzs varchar(4) NULL,
+	zyqyj varchar(4) NULL,
+	zyyht varchar(4) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	bname varchar(48) NULL,
+	"size" varchar(80) NULL,
+	datafrom varchar(1000) NULL,
+	desp_en varchar(100) NULL,
+	f_spec varchar(15) NULL,
+	f_ply float8 NULL,
+	zyzcd varchar(4) NULL,
+	zlzcd varchar(4) NULL,
+	zyzzc varchar(4) NULL,
+	exporttype varchar(2) NULL,
+	zsfbz varchar(2) NULL,
+	zbzzys varchar(10) NULL,
+	zbzfys varchar(10) NULL,
+	zjzts varchar(4) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_product PRIMARY KEY (mara_matnr)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_importfactory (
+	importfactory varchar(2) NOT NULL,
+	importfactory_short varchar(100) NULL,
+	importfactory_name varchar(200) NULL,
+	importfactory_property varchar(1) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_importfactory PRIMARY KEY (importfactory)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_importbatch (
+	batch varchar(10) NOT NULL,
+	batch_des varchar(200) NULL,
+	sales_channels varchar(1) NULL,
+	version_num varchar(1) NULL,
+	importfactory varchar(2) NULL,
+	dealer varchar(3) NULL,
+	datafrom varchar(200) NULL,
+	f_product_id varchar(3) NULL,
+	sales_territory varchar(3) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	CONSTRAINT pk_t_fer_importbatch PRIMARY KEY (batch)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_dealer (
+	dealer varchar(3) NOT NULL,
+	dealer_short varchar(100) NULL,
+	dealer_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_dealer PRIMARY KEY (dealer)
+)
+------------------------------------------------------------------
+CREATE TABLE mdm.t_fer_bcls (
+	ferbcls varchar(1) NOT NULL,
+	descript varchar(160) NULL,
+	classification_type varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_fer_bcls PRIMARY KEY (ferbcls)
+)
+---------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_waste_tobacco (
+	mara_matnr varchar(7) NOT NULL,
+	makt_maktx varchar(200) NULL,
+	code varchar(4) NULL,
+	mara_maktx varchar(12) NULL,
+	datafrom varchar(800) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_waste_tobacco PRIMARY KEY (mara_matnr)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_waste_material_cls (
+	code varchar(4) NOT NULL,
+	descript varchar(200) NULL,
+	classification_type varchar(4) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_waste_material_cls PRIMARY KEY (code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_type (
+	ventype varchar(4) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_type PRIMARY KEY (ventype)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_supp (
+	ventype varchar(4) NULL,
+	lfa1_ktokk varchar(8) NULL,
+	lfa1_lifnr varchar(32) NOT NULL,
+	lfa1_name varchar(160) NULL,
+	lfa1_sortl varchar(160) NULL,
+	lfa1_stras varchar(400) NULL,
+	lfa1_pstlz varchar(40) NULL,
+	lfa1_ort01 varchar(400) NULL,
+	lfa1_land1 varchar(6) NULL,
+	lfa1_regio varchar(40) NULL,
+	lfa1_spras varchar(4) NULL,
+	lfa1_stceg varchar(120) NULL,
+	org_code varchar(120) NULL,
+	repeat_tag varchar(40) NULL,
+	datafrom varchar(200) NULL,
+	oldnum varchar(32) NULL,
+	ht_oldnum varchar(32) NULL,
+	hy_oldnum varchar(32) NULL,
+	lfa1_telf1 varchar(100) NULL,
+	contel varchar(100) NULL,
+	connam varchar(60) NULL,
+	lfa1_telf2 varchar(100) NULL,
+	hrcode varchar(40) NULL,
+	bname varchar(48) NULL,
+	name_en varchar(100) NULL,
+	address_en varchar(200) NULL,
+	email_address varchar(241) NULL,
+	enterprise_qualifications varchar(500) NULL,
+	regist_org varchar(200) NULL,
+	org_type varchar(50) NULL,
+	modes_range varchar(2000) NULL,
+	regist_fund varchar(50) NULL,
+	build_time timestamp(0) NULL,
+	modes_begin_time timestamp(0) NULL,
+	modes_end_time timestamp(0) NULL,
+	artificial_person varchar(1000) NULL,
+	artificial_person_tel varchar(1000) NULL,
+	administrative varchar(80) NULL,
+	ordcur varchar(10) NULL,
+	taxrate varchar(4) NULL,
+	paycurrency varchar(80) NULL,
+	paymethod varchar(10) NULL,
+	payment varchar(6) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_supp PRIMARY KEY (lfa1_lifnr)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_paymethod (
+	paymethod varchar(10) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_paymethod PRIMARY KEY (paymethod)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_org_type (
+	org_type varchar(4) NOT NULL,
+	descript varchar(50) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_org_type PRIMARY KEY (org_type)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_ktokk (
+	lfa1_ktokk varchar(8) NOT NULL,
+	descript varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_ktokk PRIMARY KEY (lfa1_ktokk)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_bank (
+	lfa1_lifnr varchar(32) NULL,
+	lfbk_banks varchar(6) NULL,
+	lfbk_bankl varchar(30) NULL,
+	lfbk_bankn varchar(100) NULL,
+	bnka_banka varchar(200) NULL,
+	lfbk_koinh varchar(200) NULL,
+	venbankid varchar(18) NOT NULL,
+	datafrom varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_bank PRIMARY KEY (venbankid)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_ven_administrative (
+	administrative varchar(80) NOT NULL,
+	descript varchar(100) NULL,
+	parent_code varchar(80) NULL,
+	long_descript varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_ven_administrative PRIMARY KEY (administrative)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_tco_station (
+	tco_station_code varchar(8) NOT NULL,
+	old_code varchar(50) NULL,
+	tco_station_name varchar(160) NULL,
+	short_name varchar(80) NULL,
+	prov_code varchar(6) NULL,
+	city_code varchar(6) NULL,
+	tco_company_code varchar(6) NULL,
+	commercial_code varchar(20) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_tco_station PRIMARY KEY (tco_station_code)
+)
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_tco_length (
+	tco_length varchar(2) NOT NULL,
+	descript varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_tco_length PRIMARY KEY (tco_length)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_tco_company (
+	tco_company_code varchar(6) NOT NULL,
+	old_code varchar(6) NULL,
+	commercial_code varchar(20) NULL,
+	tco_company_name varchar(160) NULL,
+	short_name varchar(80) NULL,
+	country_code varchar(6) NULL,
+	prov_code varchar(6) NULL,
+	city_code varchar(6) NULL,
+	county_code varchar(6) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	CONSTRAINT pk_t_tco_company PRIMARY KEY (tco_company_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_sale_tjlb (
+	tjlbcode varchar(6) NOT NULL,
+	descript varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_sale_tjlb PRIMARY KEY (tjlbcode)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_sale_supp (
+	ncmcls varchar(6) NULL,
+	ncmdtl varchar(8) NULL,
+	mara_bismt varchar(36) NULL,
+	mara_matnr varchar(36) NOT NULL,
+	mara_bismt_yx varchar(36) NULL,
+	makt_maktx varchar(160) NULL,
+	maptyp varchar(160) NULL,
+	mara_maktx varchar(12) NULL,
+	datafrom varchar(1000) NULL,
+	tjlbcode varchar(6) NULL,
+	mara_bismt_sap varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_sale_supp PRIMARY KEY (mara_matnr)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_variety (
+	variety varchar(4) NOT NULL,
+	varcls varchar(4) NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_variety PRIMARY KEY (variety)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_varcls (
+	varcls varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_varcls PRIMARY KEY (varcls)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_tobacco (
+	varcls varchar(4) NULL,
+	mixtyp varchar(4) NULL,
+	part varchar(4) NULL,
+	lvlfis varchar(4) NULL,
+	prdare varchar(6) NULL,
+	arefis varchar(4) NULL,
+	aresec varchar(6) NULL,
+	arethr varchar(10) NULL,
+	arefou varchar(10) NULL,
+	state varchar(2) NULL,
+	shape varchar(2) NULL,
+	prctyp varchar(2) NULL,
+	grwyer varchar(4) NULL,
+	variety varchar(4) NULL,
+	grwtyp varchar(2) NULL,
+	lvldet varchar(10) NULL,
+	mara_mtart varchar(8) NULL,
+	mara_matkl varchar(18) NULL,
+	mara_bismt varchar(80) NULL,
+	mara_matnr varchar(80) NOT NULL,
+	makt_maktx varchar(160) NULL,
+	mara_meins varchar(8) NULL,
+	mara_maktx_en varchar(8) NULL,
+	mara_brgew float8 NULL,
+	mara_gewei varchar(6) NULL,
+	mara_ntgew float8 NULL,
+	mara_volum float8 NULL,
+	mara_voleh varchar(6) NULL,
+	datafrom varchar(1000) NULL,
+	wl_type varchar(4) NULL,
+	tleaf_process varchar(18) NULL,
+	sap_cp_group varchar(2) NULL,
+	material_hb varchar(20) NULL,
+	factory varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_tobacco PRIMARY KEY (mara_matnr)
+)
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_state (
+	state varchar(2) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_state PRIMARY KEY (state)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_shape (
+	shape varchar(2) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_shape PRIMARY KEY (shape)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_prdare (
+	prdare varchar(6) NOT NULL,
+	descript varchar(80) NULL,
+	arefis varchar(4) NULL,
+	aresec varchar(6) NULL,
+	arethr varchar(6) NULL,
+	arefou varchar(10) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_prdare PRIMARY KEY (prdare)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_prctyp (
+	prctyp varchar(2) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_prctyp PRIMARY KEY (prctyp)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_part (
+	part varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_part PRIMARY KEY (part)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_mixtyp (
+	mixtyp varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_mixtyp PRIMARY KEY (mixtyp)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_lvlfis (
+	lvlfis varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_lvlfis PRIMARY KEY (lvlfis)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_lvldet (
+	lvldet varchar(10) NOT NULL,
+	descript varchar(80) NULL,
+	part varchar(4) NULL,
+	lvlfis varchar(4) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_lvldet PRIMARY KEY (lvldet)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_grwyer (
+	grwyer varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_grwyer PRIMARY KEY (grwyer)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_grwtyp (
+	grwtyp varchar(2) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_grwtyp PRIMARY KEY (grwtyp)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_aresec (
+	aresec varchar(6) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_aresec PRIMARY KEY (aresec)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_aremore (
+	aremore varchar(10) NOT NULL,
+	descript varchar(120) NULL,
+	mark varchar(2) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_aremore PRIMARY KEY (aremore)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_roh_arefis (
+	arefis varchar(4) NOT NULL,
+	descript varchar(80) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_roh_arefis PRIMARY KEY (arefis)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_pur_place (
+	pur_place_code varchar(10) NOT NULL,
+	old_code varchar(10) NULL,
+	commercial_code varchar(20) NULL,
+	pur_place_name varchar(160) NULL,
+	short_name varchar(80) NULL,
+	tco_company_code varchar(6) NULL,
+	tco_station_code varchar(8) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_pur_place PRIMARY KEY (pur_place_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_prov (
+	prov_code varchar(6) NOT NULL,
+	prov_name varchar(160) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_prov PRIMARY KEY (prov_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mdm.t_product_ident (
+	f_product_id varchar(3) NOT NULL,
+	f_descr_zh varchar(100) NULL,
+	f_descr_en varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_product_ident PRIMARY KEY (f_product_id)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_product (
+	product_id varchar(100) NOT NULL,
+	product_name varchar(100) NULL,
+	product_category varchar(100) NULL,
+	CONSTRAINT pk_t_t_product PRIMARY KEY (product_id)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_org_short (
+	t_org_short_code varchar(4) NOT NULL,
+	t_org_short_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_org_short PRIMARY KEY (t_org_short_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_org_organiz (
+	orgcode varchar(60) NULL,
+	orgbrv varchar(16) NOT NULL,
+	orgnam varchar(160) NULL,
+	t_org_short_code varchar(4) NULL,
+	orgpar varchar(100) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_org_organiz PRIMARY KEY (orgbrv)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_org_factory (
+	t_org_factory_code varchar(8) NOT NULL,
+	t_org_factory_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_org_factory PRIMARY KEY (t_org_factory_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_org_contro_area (
+	t_org_contro_area_code varchar(8) NOT NULL,
+	t_org_contro_area_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_org_contro_area PRIMARY KEY (t_org_contro_area_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_org_chart (
+	t_org_chart_code varchar(8) NOT NULL,
+	t_org_chart_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_org_chart PRIMARY KEY (t_org_chart_code)
+)
+---------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE mdm.t_org_ccode (
+	t_org_ccode_code varchar(8) NOT NULL,
+	t_org_ccode_name varchar(200) NULL,
+	pub_time timestamp NULL,
+	pub_user varchar(100) NULL,
+	source_sys varchar(40) NULL,
+	status varchar(60) NULL,
+	update_time timestamp NULL,
+	update_user varchar(100) NULL,
+	CONSTRAINT pk_t_org_ccode PRIMARY KEY (t_org_ccode_code)
+)
